@@ -1,0 +1,172 @@
+:root{
+    --star : #ffcb47;
+    --anBtn : rgb(215, 215, 215);
+    --textColor : #ff514e;
+}
+
+.fav{
+    width: 100%;
+    margin: 1rem;
+}
+
+.fav-item{
+    margin: 0.8rem;
+}
+
+.fav-item-img{
+    width: 35%;
+}
+
+.fav-item-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fav-item-content{
+    padding: 0 0 0 1rem;
+}
+
+.fav-item-content div{
+    padding: 0.3rem 0 0 0;
+}
+
+.fav-item-name{
+    font-size: 1.3rem;
+    font-weight: 650;
+}
+
+.fav-item-price{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.fa-star{
+    color: var(--star);
+}
+
+.fav-item-nbtn{
+    margin: 0 0.6rem 0 0;
+    font-size: 1.4rem;
+    padding: 0.1rem 0.7rem;
+    text-align: center;
+    border: none;
+    background-color: var(--anBtn);
+    border-radius: 50%;
+}
+
+.fav-item-nbtn:hover{
+    cursor: pointer;
+}
+
+.fav-item-abtn{
+    margin: 0 0 0 1rem;
+    font-size: 1.4rem;
+    padding: 0.1rem 0.5rem;
+    border: none;
+    background-color: var(--anBtn);
+    border-radius: 50%;
+}
+
+.fav-item-abtn:hover{
+    cursor: pointer;
+}
+
+.fav-item-quan{
+    font-size: 1.2rem;
+}
+
+.fav-item-delete button{
+    background: none;
+    margin: 0.8rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid black;
+    padding: 0.35rem 0.7rem;
+    border-radius: 1rem;
+}
+
+.fav-item-delete button:hover{
+    background-color: var(--textColor);
+    color: white;
+    border: 1px solid var(--textColor);
+    cursor: pointer;
+}
+
+.fav-total{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.fav-total-amount{
+    color: var(--textColor);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1rem 1rem 2rem 0;
+}
+
+.fav-item-title{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.empty-cart{
+    width: 55%;
+    margin: auto;
+    transform: translate(0%, 50%);
+    text-align: center;
+}
+
+.empty-cart-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 700px){
+    .fav{
+        width: 90%;
+        margin: 1rem auto;
+    }
+
+    .empty-cart{
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .fav{
+        width: 80%;
+        margin: 1rem auto;
+    }
+
+    .fav-item-delete button{
+        padding: 0.5rem 1.8rem;
+    }
+
+    .empty-cart{
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    .fav{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .fav-item{
+        width: 40%;
+    }
+
+    .fav-item-img{
+        width: 35%;
+    }
+
+    .empty-cart{
+        width: 25%;
+    }
+}
