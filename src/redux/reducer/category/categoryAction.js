@@ -30,8 +30,9 @@ export const fetchCategoryData = () => {
     onSnapshot(collection(db, "category"), (snapshot) => {
         const list = [];
         snapshot.docs.forEach(doc => {
-            list.push({ docId: doc.id, ...doc.data() })
+            list.push({ ...doc.data() })
         });
+        console.log(list);
         fetchCategoryDataSuccess(list);
     }, (error) => fetchCategoryDataFailure(error.message));
 

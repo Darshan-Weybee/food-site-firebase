@@ -13,7 +13,7 @@ import { beforeUnload } from './redux/reducer/BeforeUnload/beforeUnload';
 import Popup from './Component/PopUp/Popup';
 import { fetchCategoryData } from "./redux/reducer/category/categoryAction";
 
-function App({cartItems, favouriteItems, recentItems, popup, fetchCategoryDetails, category}) {
+function App({cartItems, favouriteItems, recentItems, popup, fetchCategoryDetails}) {
 
   useEffect(() => {
 
@@ -22,14 +22,16 @@ function App({cartItems, favouriteItems, recentItems, popup, fetchCategoryDetail
     }
     
     window.addEventListener("beforeunload", unloadFun)
-    fetchCategoryDetails();
 
     return () => window.removeEventListener("beforeunload", unloadFun);
-  },[cartItems, favouriteItems, recentItems, fetchCategoryDetails])
+  },[cartItems, favouriteItems, recentItems])
+
+  useEffect(() => {
+    fetchCategoryDetails();
+  },[]);
 
   return (
     <div className="App">
-      {console.log(category)}
        <Navbar/>
        <Routes>
           <Route path='/' element={<Home/>}/>
@@ -48,8 +50,7 @@ const mapStateToProps = state => {
     cartItems : state.cart,
     favouriteItems : state.favourite,
     recentItems : state.recent,
-    popup : state.popup,
-    category : state.category
+    popup : state.popup
   }
 }
 
@@ -60,4 +61,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-// export default App;

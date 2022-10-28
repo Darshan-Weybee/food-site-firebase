@@ -11,7 +11,7 @@ import Image from "../../Component/Image/Image";
 import { fetchDataForCount } from "../../redux/reducer/dataCounter/fetchDataForCount";
 
 
-function Product({ dataState, productDispatch, dataCountDispatch, totalData }) {
+function Product({ dataState, productDispatch, dataCountDispatch, totalData, category }) {
     const params = useParams();
     const [search, setSearch] = useSearchParams(1);
 
@@ -27,7 +27,8 @@ function Product({ dataState, productDispatch, dataCountDispatch, totalData }) {
     },[search])
 
     useEffect(() => {
-        console.log(searchObj);
+        const type = category.categoryDetails.filter(category => category.categoryName.toLowerCase())
+        console.log(type);
         productDispatch(params.type, searchObj);
     }, [productDispatch, params.type, searchObj]);
     
@@ -100,7 +101,8 @@ const PageButton = ({ totalPage, currentPage, setSearch, searchObj }) => {
 const mapStateToProps = state => {
     return {
         dataState: state.productList,
-        totalData : state.totalData
+        totalData : state.totalData,
+        category : state.category
     }
 }
 
