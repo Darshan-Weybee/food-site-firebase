@@ -26,15 +26,17 @@ const fetchCategoryDataFailure = error => {
 }
 
 export const fetchCategoryData = () => {
-    fetchCategoryDataRequests();
-    onSnapshot(collection(db, "category"), (snapshot) => {
-        const list = [];
-        snapshot.docs.forEach(doc => {
-            list.push({ ...doc.data() })
-        });
-        console.log(list);
-        fetchCategoryDataSuccess(list);
-    }, (error) => fetchCategoryDataFailure(error.message));
+    return dispatch => {
+
+        dispatch(fetchCategoryDataRequests())
+        onSnapshot(collection(db, "category"), (snapshot) => {
+            const list = [];
+            snapshot.docs.forEach(doc => {
+                list.push({ ...doc.data() })
+            });
+            dispatch(fetchCategoryDataSuccess(list));
+        }, (error) => dispatch(fetchCategoryDataFailure(error.message)));
+    }
 
 }
 

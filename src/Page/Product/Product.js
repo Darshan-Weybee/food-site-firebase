@@ -27,8 +27,7 @@ function Product({ dataState, productDispatch, dataCountDispatch, totalData, cat
     },[search])
 
     useEffect(() => {
-        const type = category.categoryDetails.filter(category => category.categoryName.toLowerCase())
-        console.log(type);
+        console.log(category);
         productDispatch(params.type, searchObj);
     }, [productDispatch, params.type, searchObj]);
     
